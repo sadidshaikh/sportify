@@ -1,4 +1,4 @@
-package com.example.sportify.match.model
+package com.example.sportify.model
 
 import jakarta.persistence.*
 import java.time.LocalDateTime
@@ -26,13 +26,14 @@ class Match(
 
     @Column(name = "league", nullable = true)
     val league: League? = null,
-
-    @Column(name = "created_at", nullable = false)
-    val createdAt: LocalDateTime = LocalDateTime.now(),
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     val id: Long = 0
+
+    @Column(name = "created_at", nullable = false)
+    val createdAt: LocalDateTime = LocalDateTime.now()
 }
 
 enum class SportType {
