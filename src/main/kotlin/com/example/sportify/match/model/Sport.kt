@@ -24,6 +24,9 @@ class Match(
     @Column(name = "venue", nullable = true)
     val venue: String? = null,
 
+    @Column(name = "league", nullable = true)
+    val league: League? = null,
+
     @Column(name = "created_at", nullable = false)
     val createdAt: LocalDateTime = LocalDateTime.now(),
 ) {
@@ -43,4 +46,12 @@ enum class MatchStatus {
     TO_BE_DECIDED,
     SCHEDULED,
     COMPLETED,
+}
+
+enum class League {
+    EPL,
+    UCL,
+    SERIE_A,
+    LA_LIGA,
+    BUNDESLIGA,
 }
