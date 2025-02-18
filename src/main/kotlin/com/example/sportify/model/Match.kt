@@ -1,4 +1,4 @@
-package com.example.sportify.match.model
+package com.example.sportify.model
 
 import jakarta.persistence.*
 import java.time.LocalDateTime
@@ -24,12 +24,16 @@ class Match(
     @Column(name = "venue", nullable = true)
     val venue: String? = null,
 
-    @Column(name = "created_at", nullable = false)
-    val createdAt: LocalDateTime = LocalDateTime.now(),
+    @Column(name = "league", nullable = true)
+    val league: League? = null,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     val id: Long = 0
+
+    @Column(name = "created_at", nullable = false)
+    val createdAt: LocalDateTime = LocalDateTime.now()
 }
 
 enum class SportType {
@@ -43,4 +47,12 @@ enum class MatchStatus {
     TO_BE_DECIDED,
     SCHEDULED,
     COMPLETED,
+}
+
+enum class League {
+    EPL,
+    UCL,
+    SERIE_A,
+    LA_LIGA,
+    BUNDESLIGA,
 }
