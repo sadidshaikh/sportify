@@ -6,8 +6,8 @@ import java.time.LocalDateTime
 @Entity
 @Table(name = "teams")
 class Team(
-    @Column(name = "team_id", nullable = false)
-    val teamId: Long,
+    @Column(name = "team_id", nullable = false, unique = true)
+    val teamId: String,
 
     @Column(name = "name", nullable = false)
     val name: String,
